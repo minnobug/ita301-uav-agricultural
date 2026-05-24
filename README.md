@@ -16,14 +16,13 @@
 
 ## 👥 Thành viên nhóm
 
-| Họ tên | MSSV | Vai trò | Phụ trách chính |
-|---|---|---|---|
-| Đặng Thành Công | SE193711 | Project Manager | Điều phối nhóm, tổng hợp toàn bộ project |
-| Nguyễn Thị Thanh Thảo | SE191001 | Business Analyst | D1 – Proposal, D2 – SRS |
-| Trần Anh Khoa | SE194870 | System Analyst | D3 – System Modeling (DFD, UML, ERD) |
-| Lê Văn Minh | SE192904 | System Designer | D4 – Architecture, UI, Security |
-| Đặng Võ Thanh Hiếu | SE201011 | Presenter / QA | D5 – Slides, Q&A, kiểm soát chất lượng |
-
+| Full Name              | Student ID | Role            | Main Responsibilities                        |
+|------------------------|------------|-----------------|----------------------------------------------|
+| Đặng Thành Công        | SE193711   | Project Manager | Team coordination, overall project synthesis |
+| Nguyễn Thị Thanh Thảo | SE191001   | Business Analyst| D1 – Proposal, D2 – SRS                     |
+| Lê Văn Minh            | SE192904   | System Analyst  | D3 – System Modeling (DFD, UML, ERD)        |
+| Trần Anh Khoa          | SE194870   | System Designer | D4 – Architecture, UI, Security              |
+| Đặng Võ Thanh Hiếu     | SE201011   | Presenter / QA  | D5 – Slides, Q&A, Quality Control           |
 ---
 
 ## 🗂️ Cấu trúc repo
