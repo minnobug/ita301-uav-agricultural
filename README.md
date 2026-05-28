@@ -87,8 +87,8 @@ ita301-uav-agricultural/
 | Deliverable | Mô tả | Deadline | Trọng số | Trạng thái |
 |---|---|---|---|---|
 | [D1 – Project Proposal](./D1-project-proposal/) | Business problem, stakeholder map, scope, WBS, risk register | W3 — 29/05/2026 | 15% | ✅ Đã nộp |
-| [D2 – SRS Document](./D2-requirements-srs/) | ≥15 FR, ≥5 NFR, ≥8 Use Cases theo IEEE 830 | W4 | 25% | ⬜ Chưa nộp |
-| [D3 – System Modeling](./D3-system-modeling/) | DFD L0+L1, UML (Class/Sequence/Activity), ERD 3NF | W6 | 30% | ⬜ Chưa nộp |
+| [D2 – SRS Document](./D2-requirements-srs/) | ≥15 FR, ≥5 NFR, ≥8 Use Cases theo IEEE 830 | W4 | 25% | ✅ Đã nộp |
+| [D3 – System Modeling](./D3-system-modeling/) | DFD L0+L1, UML (Class/Sequence/Activity), ERD 3NF | W6 | 30% | 🔄 Đang làm |
 | [D4 – System Design](./D4-system-design-sdd/) | Architecture, UI wireframes, security model, QA plan | W9 | 20% | ⬜ Chưa nộp |
 | [D5 – Final Defense](./D5-presentation-defense/) | ~20 slides + Figma prototype demo + Q&A | W10–W11 | 10% | ⬜ Chưa nộp |
 
