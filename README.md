@@ -3,10 +3,11 @@
 > **Course:** ITA301 – Information System Analysis & Design
 > **Semester:** Summer 2026 | **Team:** 3 | **Sub-domain:** Agricultural UAV
 > **Lecture:** Trần Thanh Nguyên | FPT University HCM
+> **Last updated:** 2026-06-17 — for the authoritative file per deliverable, see the "latest" version noted in the table below, not just the newest date in the folder listing.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 *"Các hợp tác xã và doanh nghiệp dịch vụ drone tại ĐBSCL hiện đang gặp vấn đề **thiếu công cụ số** để lập lịch, điều phối và giám sát đội drone phun thuốc, dẫn đến lãng phí nhiên liệu/thuốc BVTV, không truy xuất được nhật ký phun, và không đáp ứng yêu cầu báo cáo của Cục BVTV — gây **tăng chi phí vận hành 15–20%** và rủi ro pháp lý theo Nghị định 288/2025/NĐ-CP.*
 >
@@ -14,7 +15,7 @@
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 | Full Name              | Student ID | Role            | Main Responsibilities                        |
 |------------------------|------------|-----------------|----------------------------------------------|
@@ -46,24 +47,24 @@ ita301-uav-agricultural/
 
 ## Deliverables & Timeline
 
-| Deliverable | Description | Deadline | Weight | Status |
-|---|---|---|---|---|
-| [D1 – Project Proposal](./D1-project-proposal/) | Business problem, stakeholder map, scope, WBS, risk register | W3 | 15% | ✅ Submitted |
-| [D2 – SRS Document](./D2-requirements-srs/) | ≥15 FR, ≥5 NFR, ≥8 Use Cases in IEEE 830 format | W4 | 25% | ✅ Submitted |
-| [D3 – System Modeling](./D3-system-modeling/) | DFD L0+L1, UML (Class/Sequence/Activity), ERD 3NF | W6 | 30% | 🔄 In progress |
-| [D4 – System Design](./D4-system-design-sdd/) | Architecture, UI wireframes, security model, QA plan | W9 | 20% | ⬜ Not submitted |
-| [D5 – Final Defense](./D5-presentation-defense/) | 20 slides + prototype demo + Q&A | W10–W11 | 10% | ⬜ Not submitted |
+| Deliverable                                                    | Description | Deadline | Weight | Status |
+|----------------------------------------------------------------|---|---|---|---|
+| [D1 – Project Proposal](./D1-project-proposal/) - latest: v1.4 | Business problem, stakeholder map, scope, WBS, risk register | W3 | 15% | ✅ Submitted |
+| [D2 – SRS Document](./D2-requirements-srs/) - latest: v2.3     | ≥15 FR, ≥5 NFR, ≥8 Use Cases in IEEE 830 format | W4 | 25% | ✅ Submitted |
+| [D3 – System Modeling](./D3-system-modeling/)                  | DFD L0+L1, UML (Class/Sequence/Activity), ERD 3NF | W6 | 30% | 🔄 In progress |
+| [D4 – System Design](./D4-system-design-sdd/)                  | Architecture, UI wireframes, security model, QA plan | W9 | 20% | ⬜ Not submitted |
+| [D5 – Final Defense](./D5-presentation-defense/)               | 20 slides + prototype demo + Q&A | W10–W11 | 10% | ⬜ Not submitted |
 
-> Update status after each milestone: `⬜ Not submitted` → `🔄 In progress` → `✅ Submitted`
+> Update status after each milestone: `⬜ Not submitted` → `🔄 In progress` → `✅ Submitted`. When bumping status, also update the "latest: vX.Y" tag above so it always points to the current authoritative file.
 
 ---
 
 ## AI Audit Log
 
-Audit log is maintained in `AI-audit-log/ITA301_AuditLog_AgriUAV_v1.0.docx`.
+Audit log is maintained in `AI-audit-log/`.
 
-- Target: 25 entries, current progress 12.
-- AI support: Claude, ChatGPT, NoteboolLM, Gemini.
+- Target: 25 entries, current progress 18 (through D3, entries #01-18).
+- AI support: Claude, ChatGPT, NotebookLM, Gemini.
 - Purpose: document AI usage, validate outputs, and record domain-specific corrections.
 
 ---
@@ -112,21 +113,21 @@ D1 Proposal  ──►  D2 SRS  ──►  D3 Models  ──►  D4 SDD
 
 ## References
 
-[1] Nguyen, D.L. et al. (2026). "The Effect of Farm Size on the Decision to Adopt Digital Technology: The Case of Unmanned Aerial Vehicles in Rice Production in Vietnam." Research on World Agricultural Economy. https://journals.nasspublishing.com/index.php/rwae/article/view/2358
+[1] Nguyen, D. L., Cao, H. V., Nguyen, N. A. T., Duong, V. T. T., & Nguyen, T. H. (2025). "The Effect of Farm Size on the Decision to Adopt Digital Technology: The Case of Unmanned Aerial Vehicles in Rice Production in Vietnam." Research on World Agricultural Economy, 7(1), 117–132. https://doi.org/10.36956/rwae.v7i1.2358
 
-[2] Government of Vietnam. Decree No. 288/2025/ND-CP. https://thuvienphapluat.vn/van-ban/Giao-thong-Van-tai/Nghidinh-288-2025-ND-CP-quan-ly-tau-bay-khong-nguoi-lai-va-phuong-tien-bay-khac-679996.aspx
+[2] Government of Vietnam. Decree No. 288/2025/ND-CP. https://thuvienphapluat.vn/van-ban/Giao-thong-Van-tai/Nghi-dinh-288-2025-ND-CP-quan-ly-tau-bay-khong-nguoi-lai-va-phuong-tien-bay-khac-679996.aspx
 
 [3] Thanh Nien Newspaper. (June 2025). https://thanhnien.vn/bung-no-uav-nong-nghiep-o-mien-tay-185250617232615926.htm
 
-[4] Dan Viet Digital News. (2024). https://tuoitre.vn/drone-phun-thuoc-tru-sau-va-vaoday-110kv-gay-mat-dien-o-5-huyen-tai-long-an-20241014173928997.htm
+[4] Tuoi Tre Newspaper. (2024). https://tuoitre.vn/drone-phun-thuoc-tru-sau-va-vao-day-110kv-gay-mat-dien-o-5-huyen-tai-long-an-20241014173928997.htm
 
-[5] Vietnam Naval News. (2024). https://baohaiquanvietnam.vn/tin-tuc/quan-ly-thiet-bi-bay-khong-nguoi-lai-trong-nongnghiep-khong-de-cong-nghe-tro-thanh-hiem-hoa
+[5] Vietnam Naval News. (2024). https://baohaiquanvietnam.vn/tin-tuc/quan-ly-thiet-bi-bay-khong-nguoi-lai-trong-nong-nghiep-khong-de-cong-nghe-tro-thanh-hiem-hoa
 
 [6] Vietnam News. (2026). https://vietnamnews.vn/society/1688198/use-of-agricultural-drones-on-the-rise-in-the-mekong-delta.html
 
 [7] Lao Dong Newspaper. (2025). https://laodong.vn/xa-hoi/drone-nong-nghiep-va-bai-toan-so-hoa-o-dbscl-1498970.ldo
 
-[8] CropLife Vietnam. (2025). https://croplifevietnam.org/toadam-dua-drone-tro-thanh-tro-thu-dac-luc-cua-nha-nong.html
+[8] CropLife Vietnam. (2025). https://croplifevietnam.org/toa-dam-dua-drone-tro-thanh-tro-thu-dac-luc-cua-nha-nong.html
 
 ---
 
