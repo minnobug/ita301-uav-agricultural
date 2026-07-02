@@ -1,0 +1,141 @@
+<mxfile host="Electron">
+  <diagram name="Trang-1" id="w2hCaHsrdMJn45WG0FCR">
+    <mxGraphModel dx="1288" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" value="DFD Level 0 - Context Diagram&lt;br&gt;AgriUAV Platform | ITA301 Summer 2026 | Group 3&amp;nbsp;" vertex="1">
+          <mxGeometry height="50" width="750" x="452" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="note_ops" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Design Notes:&lt;/b&gt;&lt;br&gt;• Operations Dept (Cục Tác chiến): regulatory stakeholder nhận dossier thủ công, không có data flow trực tiếp với platform trong MVP scope. UTM integration là Out-of-Scope (D1-1.4). Loại khỏi DFD theo Gane-Sarson: entity chỉ xuất hiện khi có data flow thực sự.&lt;br&gt;• Export Company (Trung An, Minh Phú): không phải system actor trong MVP RBAC (D2 UC10). VietGAP data export được thực hiện bởi HTX Manager thay mặt Export Company. Direct integration là post-MVP.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="580" x="760" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="p0" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#d6b656;fontSize=14;fontStyle=1;verticalAlign=middle;" value="AgriUAV Platform" vertex="1">
+          <mxGeometry height="120" width="400" x="627" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" value="Farmer" vertex="1">
+          <mxGeometry height="60" width="140" x="160" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" value="HTX Manager" vertex="1">
+          <mxGeometry height="60" width="140" x="650" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" value="Operator / Pilot" vertex="1">
+          <mxGeometry height="60" width="140" x="1357" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" value="Agronomist" vertex="1">
+          <mxGeometry height="60" width="140" x="80" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="Plant Protection Dept&#xa;(Cục BVTV)" vertex="1">
+          <mxGeometry height="60" width="160" x="160" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" value="Export Company&#xa;(Trung An, Minh Phú)&#xa;[post-MVP]" vertex="1">
+          <mxGeometry height="60" width="170" x="652" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" value="Weather API&#xa;(OpenWeatherMap)" vertex="1">
+          <mxGeometry height="60" width="160" x="1420" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" value="SMS / Zalo&#xa;Gateway" vertex="1">
+          <mxGeometry height="60" width="140" x="1357" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.1;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" target="p0" value="Booking request&#xa;Field info">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;dashed=1;" target="e1" value="Order confirmation&#xa;SMS/Zalo status update">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="627" y="420" />
+              <mxPoint x="230" y="420" />
+              <mxPoint x="230" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" target="p0" value="Schedule approval&#xa;Drone assignment&#xa;Fleet management (FR21)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.3;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;dashed=1;" target="e2" value="Live dashboard&#xa;Compliance report&#xa;Assignment suggestions">
+          <mxGeometry relative="1" x="0.2283" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="753" y="380" />
+              <mxPoint x="780" y="380" />
+              <mxPoint x="780" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="e3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" target="p0" value="GPS check-in/out&#xa;Flight status update">
+          <mxGeometry relative="1" x="-0.0512" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.9;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;dashed=1;" target="e3" value="Flight assignment&#xa;Alert notification">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1027" y="420" />
+              <mxPoint x="1427" y="420" />
+              <mxPoint x="1427" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f7" edge="1" parent="1" source="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;" target="p0" value="Spray formula config&#xa;Dosage confirmation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7b" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.6;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=10;dashed=1;" target="e4" value="Field spray history&#xa;Formula dosage preview">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="500" />
+              <mxPoint x="250" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f8" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=10;dashed=1;" target="e5" value="PDF/Excel report&#xa;(Decree 288/2025)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#d6b656;fontSize=10;dashed=1;" target="e6" value="VietGAP / GlobalGAP data&#xa;(via HTX Manager — post-MVP)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f10" edge="1" parent="1" source="e7" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#9673a6;fontSize=10;" target="p0" value="Wind / rain data&#xa;(every 15 min)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f11" edge="1" parent="1" source="p0" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.9;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#9673a6;fontSize=10;dashed=1;" target="e8" value="Notification trigger&#xa;(booking / completion / alert)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="leg0" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;" value="LEGEND" vertex="1">
+          <mxGeometry height="30" width="80" x="80" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Primary User (Farmer, HTX Manager, Operator, Agronomist)" vertex="1">
+          <mxGeometry height="30" width="340" x="80" y="1015" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="Regulatory Entity (Plant Protection Dept / Cục BVTV)" vertex="1">
+          <mxGeometry height="30" width="340" x="80" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="External Organisation (Export Company) — post-MVP, no direct system access in MVP" vertex="1">
+          <mxGeometry height="30" width="340" x="80" y="1095" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" value="External System (Weather API, SMS/Zalo Gateway)" vertex="1">
+          <mxGeometry height="30" width="340" x="80" y="1135" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#d6b656;fontSize=10;" value="Central Process (AgriUAV Platform)" vertex="1">
+          <mxGeometry height="30" width="340" x="80" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5a" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#333;fontSize=10;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="1030" as="sourcePoint" />
+            <mxPoint x="550" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg5b" parent="1" style="text;html=1;fontSize=10;" value="Data flow IN to platform" vertex="1">
+          <mxGeometry height="25" width="180" x="560" y="1018" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6a" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;strokeColor=#333;dashed=1;fontSize=10;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="1065" as="sourcePoint" />
+            <mxPoint x="550" y="1065" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg6b" parent="1" style="text;html=1;fontSize=10;" value="Data flow OUT from platform" vertex="1">
+          <mxGeometry height="25" width="200" x="560" y="1053" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
