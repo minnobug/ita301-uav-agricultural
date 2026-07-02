@@ -1,0 +1,952 @@
+<mxfile host="Electron">
+  <diagram name="ERD-Logical-v1.8" id="erdAgriUAVv18">
+    <mxGraphModel dx="2060" dy="1348" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2820" pageHeight="2067" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" value="ERD (Logical Model) - AgriUAV Platform&lt;div style=&quot;font-size:12px;font-weight:normal;margin-top:4px;&quot;&gt;ITA301 Summer 2026 | Group 3 | D3 v1.8&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="64" width="2700" x="60" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="band_identity" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="BAND 1 - IDENTITY &amp; ORGANIZATION" vertex="1">
+          <mxGeometry height="34" width="320" x="60" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="band_field" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="BAND 2 - FIELD &amp; AGRONOMY" vertex="1">
+          <mxGeometry height="34" width="320" x="640" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="band_fleet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="BAND 3 - FLEET &amp; SAFETY" vertex="1">
+          <mxGeometry height="34" width="320" x="1220" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="band_ops" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="BAND 4 - OPERATIONS (CORE TRANSACTION)" vertex="1">
+          <mxGeometry height="34" width="320" x="1800" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="band_compliance" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="BAND 5 - COMPLIANCE &amp; COMMUNICATION" vertex="1">
+          <mxGeometry height="34" width="320" x="2380" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users" parent="1" style="swimlane;html=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="users" vertex="1">
+          <mxGeometry height="182" width="320" x="60" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r0" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  userId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r1" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="fullName : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r2" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="email : VARCHAR(255) UNIQUE" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r3" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="passwordHash : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r4" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="role : ENUM(5) NOT NULL" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r5" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="isActive : BOOLEAN = TRUE" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_r6" parent="ent_users" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="createdAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_users_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Base account for all 5 roles (FR18 RBAC).&#xa;role = ADMIN | HTX_MANAGER | OPERATOR | FARMER | AGRONOMIST.&#xa;ADMIN has no subclass - full access via role check only." vertex="1">
+          <mxGeometry height="59" width="320" x="60" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives" parent="1" style="swimlane;html=1;startSize=26;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="cooperatives" vertex="1">
+          <mxGeometry height="162" width="320" x="60" y="523" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r0" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  cooperativeId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r1" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  managerId -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r2" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="name : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r3" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="province : VARCHAR(100)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r4" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="address : TEXT (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_r5" parent="ent_cooperatives" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="maxDrones : INTEGER = 50" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_cooperatives_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="managerId must reference a user with role = HTX_MANAGER.&#xa;maxDrones = configurable reference workload,&#xa;NOT a hard system limit (D1 v1.6 S1.2)." vertex="1">
+          <mxGeometry height="59" width="320" x="60" y="697" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields" parent="1" style="swimlane;html=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="fields" vertex="1">
+          <mxGeometry height="182" width="320" x="640" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r0" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  fieldId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r1" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  farmerId -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r2" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  cooperativeId -&gt; cooperatives" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r3" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="fieldName : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r4" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="cropType : VARCHAR(100)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r5" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="areaHa : DECIMAL(8,4)" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_r6" parent="ent_fields" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="gpsPolygon : TEXT (GeoJSON, GIST idx)" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_fields_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="farmerId must reference a user with role = FARMER.&#xa;UC09 BR: closed-ring polygon, area 0.1-100 ha.&#xa;areaHa auto-computed via PostGIS ST_Area()." vertex="1">
+          <mxGeometry height="59" width="320" x="640" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas" parent="1" style="swimlane;html=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="spray_formulas" vertex="1">
+          <mxGeometry height="162" width="320" x="640" y="523" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r0" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  formulaId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r1" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  fieldId -&gt; fields (UNIQUE, 1:1)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r2" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  pesticideId -&gt; pesticides" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r3" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  configuredBy -&gt; users (Agronomist)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r4" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="dosageLPerHa : DECIMAL(6,2)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_r5" parent="ent_spray_formulas" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="sprayCountPerSeason : SMALLINT" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_formulas_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="FR02: final dosage requires Agronomist or&#xa;HTX Manager confirmation before mission dispatch." vertex="1">
+          <mxGeometry height="44" width="320" x="640" y="697" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides" parent="1" style="swimlane;html=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="pesticides" vertex="1">
+          <mxGeometry height="142" width="320" x="640" y="811" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_r0" parent="ent_pesticides" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  pesticideId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_r1" parent="ent_pesticides" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="name : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_r2" parent="ent_pesticides" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="activeIngredient : VARCHAR(255)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_r3" parent="ent_pesticides" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="isApprovedBVTV : BOOLEAN = FALSE" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_r4" parent="ent_pesticides" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="unit : VARCHAR(20) = &#39;L&#39;" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticides_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Master BVTV-approved registry (FR16).&#xa;isApprovedBVTV checked at booking (UC01 Alt4a)." vertex="1">
+          <mxGeometry height="44" width="320" x="640" y="965" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock" parent="1" style="swimlane;html=1;startSize=26;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="pesticide_stock" vertex="1">
+          <mxGeometry height="162" width="320" x="640" y="1079" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r0" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  stockId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r1" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  cooperativeId -&gt; cooperatives" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r2" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  pesticideId -&gt; pesticides" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r3" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="stockL : DECIMAL(8,2) = 0" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r4" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="lowStockThresholdL : DECIMAL(8,2)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_r5" parent="ent_pesticide_stock" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="updatedAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_pesticide_stock_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Per-cooperative inventory, split from the&#xa;pesticides master registry (FR16).&#xa;UNIQUE(cooperativeId, pesticideId)." vertex="1">
+          <mxGeometry height="59" width="320" x="640" y="1253" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones" parent="1" style="swimlane;html=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="drones" vertex="1">
+          <mxGeometry height="222" width="320" x="1220" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r0" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  droneId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r1" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  cooperativeId -&gt; cooperatives" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r2" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="serialNumber : VARCHAR(100) UNIQUE" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r3" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="model : VARCHAR(100)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r4" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="tankCapacityL : DECIMAL(5,2)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r5" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="batteryPercent : SMALLINT = 100" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r6" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="status : ENUM(4) = IDLE" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r7" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="gpsLat / gpsLng : DECIMAL(9,6) (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_r8" parent="ent_drones" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="updatedAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drones_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="serialNumber = FR21 Decree 288 drone identifier.&#xa;batteryPercent / gpsLat / gpsLng = mobile-GPS proxy or&#xa;simulated telemetry (MVP); native MAVLink is post-MVP." vertex="1">
+          <mxGeometry height="59" width="320" x="1220" y="434" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators" parent="1" style="swimlane;html=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="operators" vertex="1">
+          <mxGeometry height="142" width="320" x="1220" y="563" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_r0" parent="ent_operators" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  operatorId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_r1" parent="ent_operators" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  userId -&gt; users (UNIQUE, 1:1)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_r2" parent="ent_operators" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="certificateNumber : VARCHAR(50) UNIQUE" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_r3" parent="ent_operators" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="certificateExpiry : DATE" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_r4" parent="ent_operators" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="operationalStatus : VARCHAR(50) = &#39;ACTIVE&#39;" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_operators_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="userId must reference a user with role = OPERATOR.&#xa;certificateExpiry validated on every assignment (UC02);&#xa;expired certificates are hidden from suggestions." vertex="1">
+          <mxGeometry height="59" width="320" x="1220" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences" parent="1" style="swimlane;html=1;startSize=26;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="geofences" vertex="1">
+          <mxGeometry height="162" width="320" x="1220" y="846" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r0" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  geofenceId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r1" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  fieldId -&gt; fields (UNIQUE, 1:1)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r2" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="boundaryPolygon : TEXT (GeoJSON)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r3" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="bufferMeters : INTEGER = 50" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r4" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="hazardZones : JSONB (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_r5" parent="ent_geofences" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="isActive : BOOLEAN = FALSE" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_geofences_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Default 50m buffer around registered 110kV lines&#xa;(Long An incident, Tuoi Tre 2024).&#xa;Information-level alert only (FR12) - never controls&#xa;the drone, firmware, or autopilot." vertex="1">
+          <mxGeometry height="74" width="320" x="1220" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders" parent="1" style="swimlane;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="spray_orders" vertex="1">
+          <mxGeometry height="282" width="320" x="1800" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r0" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  orderId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r1" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  farmerId -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r2" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  fieldId -&gt; fields" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r3" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  droneId -&gt; drones (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r4" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  operatorId -&gt; operators (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r5" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="scheduledDate : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r6" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="actualStartTime : TIMESTAMP (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r7" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="status : ENUM(6) = PENDING" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r8" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="statusReason : TEXT (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r9" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="pestAmountL : DECIMAL(6,2) (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r10" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="cancelReason : TEXT (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_r11" parent="ent_spray_orders" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="createdAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="246" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_spray_orders_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="droneId/operatorId NULL while status = PENDING.&#xa;statusReason in {Weather, Needs Review, Lacking safety&#xa;confirmation, Confirmation timeout}.&#xa;&#39;No-assign&#39; path keeps PENDING, not CANCELLED (UC02 Alt3a).&#xa;idx(fieldId, scheduledDate) supports FR04 conflict check." vertex="1">
+          <mxGeometry height="89" width="320" x="1800" y="494" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs" parent="1" style="swimlane;html=1;startSize=26;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="flight_logs" vertex="1">
+          <mxGeometry height="262" width="320" x="1800" y="653" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r0" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  logId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r1" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  orderId -&gt; spray_orders (UNIQUE, 1:1)" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r2" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  droneId -&gt; drones" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r3" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  operatorId -&gt; operators" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r4" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="checkInTime / checkOutTime : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r5" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="checkInLat / checkInLng : DECIMAL(9,6)" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r6" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="pesticideUsedL : DECIMAL(6,2) (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r7" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="areaSprayed : DECIMAL(8,4) (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r8" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="gpsTrail : JSONB (nullable, ~3s interval)" vertex="1">
+          <mxGeometry height="20" width="320" y="186" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r9" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="manualOverride : BOOLEAN = FALSE" vertex="1">
+          <mxGeometry height="20" width="320" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_r10" parent="ent_flight_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="syncedAt : TIMESTAMP (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_flight_logs_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="HYPERTABLE(checkInTime), partitioned monthly.&#xa;manualOverride = TRUE only after HTX Manager approval&#xa;(UC03 Alt3a) - Pilot cannot self-confirm an override.&#xa;Checkout confirmed via authenticated session (FR18),&#xa;not a biometric/PIN field." vertex="1">
+          <mxGeometry height="89" width="320" x="1800" y="927" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions" parent="1" style="swimlane;html=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12;align=center;strokeWidth=2;dashed=1;" value="drone_positions  (derived)" vertex="1">
+          <mxGeometry height="142" width="320" x="1800" y="1086" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_r0" parent="ent_drone_positions" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  posId : BIGSERIAL (AUTO)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_r1" parent="ent_drone_positions" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  droneId -&gt; drones" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_r2" parent="ent_drone_positions" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  orderId -&gt; spray_orders (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_r3" parent="ent_drone_positions" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="lat / lng : DECIMAL(9,6)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_r4" parent="ent_drone_positions" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="recordedAt : TIMESTAMP = NOW()" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_drone_positions_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Derived/operational table supporting FR10/NFR01 -&#xa;NOT one of the 14 logical entities.&#xa;HYPERTABLE, weekly partition; ~5yr retention (working&#xa;assumption pending Decree 288 article confirmation)." vertex="1">
+          <mxGeometry height="74" width="320" x="1800" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications" parent="1" style="swimlane;html=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="notifications" vertex="1">
+          <mxGeometry height="202" width="320" x="2380" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r0" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  notificationId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r1" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  recipientId -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r2" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  relatedOrderId -&gt; spray_orders (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r3" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="channel : VARCHAR(20) {SMS|ZALO|PUSH}" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r4" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="eventType : VARCHAR(50)" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r5" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="content : TEXT" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r6" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="status : VARCHAR(20) = &#39;PENDING&#39;" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_r7" parent="ent_notifications" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="sentAt : TIMESTAMP (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_notifications_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="FR17. Decoupled from spray_orders so a notification&#xa;can exist without an order (e.g. system-level alerts)." vertex="1">
+          <mxGeometry height="44" width="320" x="2380" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs" parent="1" style="swimlane;html=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="audit_logs" vertex="1">
+          <mxGeometry height="202" width="320" x="2380" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r0" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  auditId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r1" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  actorId -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r2" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="eventType : ENUM(7)" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r3" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="actorRole : ENUM(5)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r4" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="targetEntityId / targetEntityType" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r5" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="description : TEXT" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r6" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="ipAddress : VARCHAR(45) (nullable)" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_r7" parent="ent_audit_logs" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="occurredAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_audit_logs_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="APPEND-ONLY - DB trigger blocks UPDATE/DELETE (NFR05).&#xa;Covers weather override, report export, data access,&#xa;and GPS check-in overrides (UC03 Alt3a)." vertex="1">
+          <mxGeometry height="59" width="320" x="2380" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports" parent="1" style="swimlane;html=1;startSize=26;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="reports" vertex="1">
+          <mxGeometry height="202" width="320" x="2380" y="871" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r0" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  reportId : VARCHAR(36)" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r1" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  generatedBy -&gt; users" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r2" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  cooperativeId -&gt; cooperatives" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r3" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="reportType : ENUM(3)" vertex="1">
+          <mxGeometry height="20" width="320" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r4" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="periodStart / periodEnd : DATE" vertex="1">
+          <mxGeometry height="20" width="320" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r5" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="fileFormat : VARCHAR(10) {PDF|XLSX}" vertex="1">
+          <mxGeometry height="20" width="320" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r6" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="fileUrl : TEXT" vertex="1">
+          <mxGeometry height="20" width="320" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_r7" parent="ent_reports" style="text;html=1;strokeColor=none;fillColor=none;align=left;spacingLeft=8;fontSize=11;" value="exportedAt : TIMESTAMP" vertex="1">
+          <mxGeometry height="20" width="320" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_reports_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="reportType in {DECREE_288, VIETGAP, GLOBALGAP}.&#xa;Layout aligned to PPD fields; exact official format&#xa;pending authority confirmation (FR14/FR15)." vertex="1">
+          <mxGeometry height="59" width="320" x="2380" y="1085" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_report_flight_logs" parent="1" style="swimlane;html=1;startSize=26;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;align=center;strokeWidth=2;" value="report_flight_logs  (junction)" vertex="1">
+          <mxGeometry height="102" width="320" x="2380" y="1214" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_report_flight_logs_r0" parent="ent_report_flight_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  reportId -&gt; reports" vertex="1">
+          <mxGeometry height="20" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_report_flight_logs_r1" parent="ent_report_flight_logs" style="text;html=1;strokeColor=none;fillColor=#ffe6cc;align=left;spacingLeft=8;fontSize=11;" value="FK  logId -&gt; flight_logs" vertex="1">
+          <mxGeometry height="20" width="320" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_report_flight_logs_r2" parent="ent_report_flight_logs" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=left;spacingLeft=8;fontSize=11;" value="PK  PK (reportId, logId) composite" vertex="1">
+          <mxGeometry height="20" width="320" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_report_flight_logs_note" parent="1" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;fontStyle=2;fontColor=#5b4a18;spacing=6;" value="Resolves flight_logs (0,n) : reports (1,n) M:N.&#xa;A report aggregates &gt;=1 logs; a log may appear&#xa;in 0..n reports." vertex="1">
+          <mxGeometry height="59" width="320" x="2380" y="1328" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_1" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_cooperatives" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_1_ls" connectable="0" parent="rel_1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_1_lt" connectable="0" parent="rel_1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_1_lv" connectable="0" parent="rel_1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="manages" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_2" edge="1" parent="1" source="ent_cooperatives" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_fields" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_2_ls" connectable="0" parent="rel_2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_2_lt" connectable="0" parent="rel_2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_2_lv" connectable="0" parent="rel_2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="contains" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_3" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;" target="ent_fields" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_3_ls" connectable="0" parent="rel_3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_3_lt" connectable="0" parent="rel_3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_3_lv" connectable="0" parent="rel_3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="owns (Farmer)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_4" edge="1" parent="1" source="ent_fields" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_formulas" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_4_ls" connectable="0" parent="rel_4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_4_lt" connectable="0" parent="rel_4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_4_lv" connectable="0" parent="rel_4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="has" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_5" edge="1" parent="1" source="ent_pesticides" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_formulas" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_5_ls" connectable="0" parent="rel_5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_5_lt" connectable="0" parent="rel_5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_5_lv" connectable="0" parent="rel_5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="used in" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_6" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_formulas" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_6_ls" connectable="0" parent="rel_6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_6_lt" connectable="0" parent="rel_6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_6_lv" connectable="0" parent="rel_6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="configures (Agronomist)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_7" edge="1" parent="1" source="ent_cooperatives" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_drones" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_7_ls" connectable="0" parent="rel_7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_7_lt" connectable="0" parent="rel_7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_7_lv" connectable="0" parent="rel_7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="owns fleet (&lt;=50)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_8" edge="1" parent="1" source="ent_cooperatives" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_pesticide_stock" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_8_ls" connectable="0" parent="rel_8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_8_lt" connectable="0" parent="rel_8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_8_lv" connectable="0" parent="rel_8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="holds stock" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_9" edge="1" parent="1" source="ent_pesticides" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_pesticide_stock" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_9_ls" connectable="0" parent="rel_9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_9_lt" connectable="0" parent="rel_9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_9_lv" connectable="0" parent="rel_9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="stocked as" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_10" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_operators" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_10_ls" connectable="0" parent="rel_10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_10_lt" connectable="0" parent="rel_10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_10_lv" connectable="0" parent="rel_10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="is (Operator)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_11" edge="1" parent="1" source="ent_fields" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_geofences" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_11_ls" connectable="0" parent="rel_11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_11_lt" connectable="0" parent="rel_11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_11_lv" connectable="0" parent="rel_11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="has boundary" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_12" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_12_ls" connectable="0" parent="rel_12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_12_lt" connectable="0" parent="rel_12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_12_lv" connectable="0" parent="rel_12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="places (Farmer)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_13" edge="1" parent="1" source="ent_fields" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_13_ls" connectable="0" parent="rel_13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_13_lt" connectable="0" parent="rel_13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_13_lv" connectable="0" parent="rel_13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="scheduled for" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_14" edge="1" parent="1" source="ent_drones" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_14_ls" connectable="0" parent="rel_14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_14_lt" connectable="0" parent="rel_14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_14_lv" connectable="0" parent="rel_14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="assigned to" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_15" edge="1" parent="1" source="ent_operators" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.65;entryDx=0;entryDy=0;fontSize=10;" target="ent_spray_orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_15_ls" connectable="0" parent="rel_15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_15_lt" connectable="0" parent="rel_15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_15_lv" connectable="0" parent="rel_15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="assigned to" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_16" edge="1" parent="1" source="ent_spray_orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#82b366;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_flight_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_16_ls" connectable="0" parent="rel_16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_16_lt" connectable="0" parent="rel_16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#82b366;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_16_lv" connectable="0" parent="rel_16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="generates" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_17" edge="1" parent="1" source="ent_drones" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_flight_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_17_ls" connectable="0" parent="rel_17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_17_lt" connectable="0" parent="rel_17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_17_lv" connectable="0" parent="rel_17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="flown in" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_18" edge="1" parent="1" source="ent_operators" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;" target="ent_flight_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_18_ls" connectable="0" parent="rel_18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_18_lt" connectable="0" parent="rel_18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_18_lv" connectable="0" parent="rel_18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="performed by" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_19" edge="1" parent="1" source="ent_drones" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;dashed=1;strokeColor=#999999;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_drone_positions" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_19_ls" connectable="0" parent="rel_19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#999999;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_19_lt" connectable="0" parent="rel_19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#999999;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_19_lv" connectable="0" parent="rel_19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="reports" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_20" edge="1" parent="1" source="ent_spray_orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;dashed=1;strokeColor=#999999;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_drone_positions" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_20_ls" connectable="0" parent="rel_20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#999999;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_20_lt" connectable="0" parent="rel_20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#999999;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_20_lv" connectable="0" parent="rel_20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="tracked during" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_21" edge="1" parent="1" source="ent_spray_orders" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_notifications" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_21_ls" connectable="0" parent="rel_21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_21_lt" connectable="0" parent="rel_21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_21_lv" connectable="0" parent="rel_21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="triggers" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_22" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.8;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;" target="ent_notifications" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_22_ls" connectable="0" parent="rel_22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_22_lt" connectable="0" parent="rel_22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_22_lv" connectable="0" parent="rel_22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="receives" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_23" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.28;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_audit_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_23_ls" connectable="0" parent="rel_23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_23_lt" connectable="0" parent="rel_23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_23_lv" connectable="0" parent="rel_23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="acts in" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_24" edge="1" parent="1" source="ent_users" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.42;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_reports" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_24_ls" connectable="0" parent="rel_24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_24_lt" connectable="0" parent="rel_24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_24_lv" connectable="0" parent="rel_24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="generates" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_25" edge="1" parent="1" source="ent_cooperatives" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#6c8ebf;strokeWidth=1.5;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;fontSize=10;" target="ent_reports" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_25_ls" connectable="0" parent="rel_25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_25_lt" connectable="0" parent="rel_25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_25_lv" connectable="0" parent="rel_25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="reported for" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_26" edge="1" parent="1" source="ent_flight_logs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#b85450;strokeWidth=1.5;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;fontSize=10;" target="ent_report_flight_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_26_ls" connectable="0" parent="rel_26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#b85450;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_26_lt" connectable="0" parent="rel_26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#b85450;labelBackgroundColor=#ffffff;" value="(0,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_26_lv" connectable="0" parent="rel_26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="included via" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_27" edge="1" parent="1" source="ent_reports" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=none;startArrow=none;strokeColor=#b85450;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" target="ent_report_flight_logs" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_27_ls" connectable="0" parent="rel_27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#b85450;labelBackgroundColor=#ffffff;" value="(1,1)" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_27_lt" connectable="0" parent="rel_27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=10;fontStyle=1;fontColor=#b85450;labelBackgroundColor=#ffffff;" value="(1,n)" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_27_lv" connectable="0" parent="rel_27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fontSize=9;fontStyle=2;fontColor=#555555;labelBackgroundColor=#ffffff;" value="aggregates via" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;strokeColor=#999999;fillColor=#fafafa;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;spacing=8;" value="LEGEND&#xa;Green row = Primary Key (PK)   |   Orange row = Foreign Key (FK)&#xa;&#xa;CARDINALITY NOTATION (min,max) - comma style, placed at EACH end of a line:&#xa;  The label next to an entity states how many rows of THAT entity relate to ONE row on the other end.&#xa;  (1,1) = exactly one (mandatory, single)      (0,1) = zero or one (optional, single)&#xa;  (0,n) = zero to many (optional, many)         (1,n) = one to many (mandatory, many)&#xa;  Example:  users (1,1) --- manages --- (0,n) cooperatives&#xa;     means: each cooperative has EXACTLY ONE manager;  a user may manage ZERO OR MANY cooperatives.&#xa;&#xa;Header colors group entities by domain (left to right = natural read order):&#xa;  Blue = Identity &amp; Organization   Green = Field &amp; Agronomy   Orange = Fleet &amp; Safety&#xa;  Yellow = Operations (core transaction)   Purple = Compliance &amp; Communication&#xa;  Gray dashed = Derived/operational table (NOT one of the 14 logical entities)&#xa;  Red/pink = Junction table (resolves an M:N relationship)&#xa;&#xa;Line colors: green = relation within the same domain column | blue = flows left-to-right (forward)&#xa;  brown = flows right-to-left (back-reference) | gray dashed = derived/telemetry table" vertex="1">
+          <mxGeometry height="280" width="590" x="200" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="nf_note" parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#eaf6ea;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10;spacing=8;" value="3NF VALIDATION SUMMARY&#xa;1NF: OK - all attributes atomic; gpsTrail / hazardZones / gpsPolygon stored as single JSONB/TEXT columns, no repeating groups.&#xa;2NF: OK (trivial) - every table uses a single-column surrogate UUID/BIGSERIAL PK, so no partial-key dependency is possible.&#xa;3NF: OK - every non-key attribute checked against its PK; no transitive dependencies found. Notably:&#xa;  - spray_orders does NOT store cooperativeId (derivable via drones/fields) or pilot name (derivable via operatorId -&gt; users).&#xa;  - pesticide_stock keeps stockL per (cooperativeId, pesticideId), not duplicated inside the pesticides master registry.&#xa;  - flight_logs does NOT duplicate field/order data already reachable via orderId.&#xa;&#xa;v1.8 logic fixes vs. v1.6:&#xa;  - drones/operators -&gt; spray_orders corrected to (0,1)-(0,n): droneId/operatorId are nullable while an order is PENDING.&#xa;  - spray_orders -&gt; drone_positions corrected to (0,1)-(0,n): orderId is nullable (idle telemetry pings have no order).&#xa;  - spray_orders -&gt; notifications corrected to (0,1)-(0,n): relatedOrderId is nullable (system-level notifications).&#xa;  - All FK-mandatory relationships kept (1,1) only where the DB column is genuinely NOT NULL." vertex="1">
+          <mxGeometry height="200" width="730" x="1240" y="1440" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
