@@ -3,7 +3,7 @@
 > **Course:** ITA301 – Information System Analysis & Design
 > **Semester:** Summer 2026 | **Team:** 3 | **Sub-domain:** Agricultural UAV
 > **Lecture:** Trần Thanh Nguyên | FPT University HCM
-> **Last updated:** 2026-06-17 — for the authoritative file per deliverable, see the "latest" version noted in the table below, not just the newest date in the folder listing.
+> **Last updated:** 2026-07-02 — for the authoritative file per deliverable, see the "latest" version noted in the table below, not just the newest date in the folder listing.
 
 ---
 
@@ -18,7 +18,7 @@
 ## Team Members
 
 | Full Name              | Student ID | Role            | Main Responsibilities                        |
-|------------------------|------------|-----------------|----------------------------------------------|
+|------------------------|------------|-----------------|------------------------------------------------|
 | Đặng Thành Công        | SE193711   | Project Manager | Team coordination, overall project synthesis |
 | Nguyễn Thị Thanh Thảo | SE191001   | Business Analyst| D1 – Proposal, D2 – SRS                     |
 | Lê Văn Minh            | SE192904   | System Analyst  | D3 – System Modeling (DFD, UML, ERD)        |
@@ -29,7 +29,7 @@
 
 ## Repository Structure
 
-The repository stores the team’s ITA301 design deliverables.
+The repository stores the team's ITA301 design deliverables.
 
 ```
 ita301-uav-agricultural/
@@ -48,11 +48,11 @@ ita301-uav-agricultural/
 ## Deliverables & Timeline
 
 | Deliverable                                                    | Description | Deadline | Weight | Status |
-|----------------------------------------------------------------|---|---|---|---|
-| [D1 – Project Proposal](./D1-project-proposal/) - latest: v1.4 | Business problem, stakeholder map, scope, WBS, risk register | W3 | 15% | ✅ Submitted |
-| [D2 – SRS Document](./D2-requirements-srs/) - latest: v2.3     | ≥15 FR, ≥5 NFR, ≥8 Use Cases in IEEE 830 format | W4 | 25% | ✅ Submitted |
-| [D3 – System Modeling](./D3-system-modeling/)                  | DFD L0+L1, UML (Class/Sequence/Activity), ERD 3NF | W6 | 30% | 🔄 In progress |
-| [D4 – System Design](./D4-system-design-sdd/)                  | Architecture, UI wireframes, security model, QA plan | W9 | 20% | ⬜ Not submitted |
+|------------------------------------------------------------------|---|---|---|---|
+| [D1 – Project Proposal](./D1-project-proposal/) - latest: v1.6 | Business problem, stakeholder map, scope, WBS, risk register | W3 | 15% | ✅ Submitted |
+| [D2 – SRS Document](./D2-requirements-srs/) - latest: v2.4      | 21 FR, 7 NFR, 10 Use Cases in IEEE 830 format | W4 | 25% | ✅ Submitted |
+| [D3 – System Modeling](./D3-system-modeling/) - latest: v3.1 | DFD L0+L1, UML (Class/Use Case/Sequence/Activity — StarUML), ERD 3NF, Data Dictionary, Traceability | W6 | 30% | ✅ Submitted |
+| [D4 – System Design](./D4-system-design-sdd/)                  | Architecture, UI wireframes, security model, QA plan | W9 | 20% | 🔄 In progress |
 | [D5 – Final Defense](./D5-presentation-defense/)               | 20 slides + prototype demo + Q&A | W10–W11 | 10% | ⬜ Not submitted |
 
 > Update status after each milestone: `⬜ Not submitted` → `🔄 In progress` → `✅ Submitted`. When bumping status, also update the "latest: vX.Y" tag above so it always points to the current authoritative file.
@@ -63,7 +63,7 @@ ita301-uav-agricultural/
 
 Audit log is maintained in `AI-audit-log/`.
 
-- Target: 25 entries, current progress 18 (through D3, entries #01-18).
+- Target: 25 entries, current progress 20 (through D3, entries #01-20).
 - AI support: Claude, ChatGPT, NotebookLM, Gemini.
 - Purpose: document AI usage, validate outputs, and record domain-specific corrections.
 
@@ -78,7 +78,7 @@ The project supports core users and regulatory stakeholders for agricultural dro
 | Cooperative Management (HTX) | Schedule missions, dispatch fleet, monitor operations and costs |
 | Operators / Drone Pilots | Execute flight plans and report mission status via mobile app |
 | Rice Farmers | Request spraying service, receive notifications, and track application history |
-| Agricultural Exporters | Access spraying history for compliance with VietGAP / GlobalGAP |
+| Agricultural Exporters | Access spraying history for compliance with VietGAP / GlobalGAP (post-MVP, via HTX Manager) |
 | Cục BVTV / Cục Tác chiến | Oversee regulatory compliance and flight approvals |
 
 ---
@@ -94,6 +94,7 @@ D1 Proposal  ──►  D2 SRS  ──►  D3 Models  ──►  D4 SDD
 
 - Every FR in D2 must map to a Use Case in D3.
 - Every Use Case in D3 must trace to an architecture decision in D4.
+- D3 v3.1 traceability matrix: 21/21 FRs documented, ≈90% traced to Class Diagram / DB table, ≈90% traced to ≥1 UC.
 
 ---
 
@@ -101,11 +102,11 @@ D1 Proposal  ──►  D2 SRS  ──►  D3 Models  ──►  D4 SDD
 
 | Purpose | Tool |
 |---|---|
-| UML diagrams | PlantUML |
-| DFD & flowchart | draw.io |
+| UML diagrams (primary, submission evidence) | StarUML (`.mdj`) |
+| UML diagrams (reference only) | PlantUML (`.puml`) |
+| DFD & ERD | draw.io |
 | UI wireframes | Figma |
 | SRS / SDD documentation | Microsoft Word (IEEE 830) |
-| ERD | draw.io / dbdiagram.io |
 | AI assistance | Claude, ChatGPT, Gemini, NotebookLM |
 | Version control | Git + GitHub |
 
@@ -121,21 +122,23 @@ D1 Proposal  ──►  D2 SRS  ──►  D3 Models  ──►  D4 SDD
 
 [4] Tuoi Tre Newspaper. (2024). https://tuoitre.vn/drone-phun-thuoc-tru-sau-va-vao-day-110kv-gay-mat-dien-o-5-huyen-tai-long-an-20241014173928997.htm
 
-[5] Vietnam Naval News. (2024). https://baohaiquanvietnam.vn/tin-tuc/quan-ly-thiet-bi-bay-khong-nguoi-lai-trong-nong-nghiep-khong-de-cong-nghe-tro-thanh-hiem-hoa
+[5] Vietnam Naval News. (2025). https://baohaiquanvietnam.vn/tin-tuc/quan-ly-thiet-bi-bay-khong-nguoi-lai-trong-nong-nghiep-khong-de-cong-nghe-tro-thanh-hiem-hoa
 
-[6] Vietnam News. (2026). https://vietnamnews.vn/society/1688198/use-of-agricultural-drones-on-the-rise-in-the-mekong-delta.html
+[6] Vietnam News. (2024). https://vietnamnews.vn/society/1688198/use-of-agricultural-drones-on-the-rise-in-the-mekong-delta.html
 
 [7] Lao Dong Newspaper. (2025). https://laodong.vn/xa-hoi/drone-nong-nghiep-va-bai-toan-so-hoa-o-dbscl-1498970.ldo
 
 [8] CropLife Vietnam. (2025). https://croplifevietnam.org/toa-dam-dua-drone-tro-thanh-tro-thu-dac-luc-cua-nha-nong.html
 
+[9] VnExpress. (2025). "UAV Việt có tiềm năng cạnh tranh thế giới", citing Markets & Data. https://vnexpress.net/uav-viet-co-tiem-nang-canh-tranh-the-gioi-4991987.html
+
 ---
 
 ## Scope Boundaries
 
-**In scope:** Fleet scheduling, real-time drone monitoring, GIS field mapping, pilot management, compliance report export (PDF/Excel), Zalo/SMS notifications.
+**In scope:** Fleet scheduling, near real-time drone monitoring, GIS field mapping, pilot management, compliance-support report export (PDF/Excel), Zalo/SMS notifications.
 
-**Out of scope:** Hardware flight control, AI pest detection (computer vision), payment gateway, direct API integration with Cục Tác chiến, multi-cooperative federation.
+**Out of scope:** Hardware flight control, AI pest detection (computer vision), payment gateway, direct API integration with Cục Tác chiến (UTM), multi-cooperative federation, native MAVLink telemetry (post-MVP).
 
 > This repository is for ITA301 analysis and design documentation only: SRS, UML, SDD, wireframes — not backend/frontend source code.
 
