@@ -1,0 +1,83 @@
+<mxfile host="Electron">
+  <diagram name="6.2.3 Transactional Booking Path" id="d423_booking_path">
+    <mxGraphModel dx="1336" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" value="Figure 6.2.3 – Transactional Booking Path (Strict Consistency)&lt;br&gt;&lt;font style=&quot;font-size:10px;font-style:italic;font-weight:normal;&quot;&gt;UC01 Request Booking · UC02 Dispatch Drone · ITA301 Summer 2026 | Group 3&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="969" x="100" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_edge" parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" value="Edge Zone" vertex="1">
+          <mxGeometry height="30" width="120" x="60" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_cloud" parent="1" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" value="Cloud Zone (VPS)" vertex="1">
+          <mxGeometry height="30" width="840" x="300" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n_client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" value="① Client app&lt;br&gt;&lt;font style=&quot;font-size:9px;font-weight:normal;&quot;&gt;Farmer mobile&lt;br&gt;or HTX Web Dashboard&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="140" x="60" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="n_client" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=9;" target="n_nginx" value="HTTPS / TLS over 4G">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_nginx" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="② Nginx&lt;br&gt;&lt;font style=&quot;font-size:9px;font-weight:normal;&quot;&gt;TLS 1.3 termination&lt;br&gt;Routes to Booking module&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="280" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="n_nginx" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=9;" target="n_nestjs" value="JWT validated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_nestjs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" value="③ NestJS Booking Module&lt;br&gt;&lt;font style=&quot;font-size:9px;font-weight:normal;&quot;&gt;RBAC guard · schedule conflict check&lt;br&gt;Initiates DB transaction&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="490" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" edge="1" parent="1" source="n_nestjs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf;fontSize=9;" target="n_pg" value="BEGIN TRANSACTION">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n_pg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;strokeWidth=2;" value="④ PostgreSQL 16 + PostGIS&lt;br&gt;&lt;font style=&quot;font-size:9px;font-weight:normal;&quot;&gt;ACID · Pessimistic Row-Level Lock&lt;br&gt;Blocks overlapping drone schedule&lt;br&gt;409 Conflict on overlap (UC02)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="200" x="800" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="n_redis_bypass" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#b3b3b3;fontSize=11;fontStyle=0;fontColor=#b3b3b3;" value="Redis Stack&lt;br&gt;&lt;font style=&quot;font-size:9px;&quot;&gt;NOT used for bookings&lt;br&gt;(eventual consistency risk)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="800" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="bypass_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#b3b3b3;fontStyle=2;" value="✕ Bypassed — booking requests route&lt;br&gt;directly to PostgreSQL to guarantee ACID" vertex="1">
+          <mxGeometry height="40" width="170" x="630" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="e_bypass" edge="1" parent="1" source="note_rbac" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endFill=0;strokeColor=#b3b3b3;fontSize=9;dashed=1;dashPattern=3 3;opacity=40;" target="n_redis_bypass" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_response" edge="1" parent="1" source="n_pg" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#82b366;fontSize=9;dashed=1;dashPattern=5 3;" target="n_client" value="200 OK / 409 Conflict">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="870" y="180" />
+              <mxPoint x="130" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note_acid" parent="1" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;b&gt;ACID Guarantee (UC02):&lt;/b&gt;&lt;br&gt;• BEGIN → lock drone row&lt;br&gt;• Check schedule overlap&lt;br&gt;• Overlap found → ROLLBACK → 409&lt;br&gt;• No overlap → COMMIT → 200 OK" vertex="1">
+          <mxGeometry height="80" width="220" x="800" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="note_audit" parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;b&gt;Audit trail (§7.1 Repudiation):&lt;/b&gt;&lt;br&gt;All status changes stamped with&lt;br&gt;user_id · IP · server timestamp&lt;br&gt;→ system_logs (append-only)" vertex="1">
+          <mxGeometry height="70" width="180" x="60" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="note_contrast" parent="1" style="text;html=1;strokeColor=#666;fillColor=#f5f5f5;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;b&gt;Key difference from 6.2.2 (Telemetry):&lt;/b&gt; Booking traffic bypasses Redis buffer and writes directly to PostgreSQL to prevent race conditions on drone scheduling (NFR04 does not override ACID for transactional data)." vertex="1">
+          <mxGeometry height="35" width="910" x="60" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;strokeColor=#666;fillColor=#f5f5f5;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;━━━ Synchronous HTTPS (strict)&lt;br&gt;╌╌╌ Response / async&lt;br&gt;╌╌ (gray) Path not taken" vertex="1">
+          <mxGeometry height="60" width="180" x="60" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="eUYIQHxdcW8EKCl7DeO9-1" edge="1" parent="1" source="n_nestjs" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endFill=0;strokeColor=#b3b3b3;fontSize=9;dashed=1;dashPattern=3 3;opacity=40;" target="note_rbac" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="600" y="320" as="sourcePoint" />
+            <mxPoint x="770" y="415" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note_rbac" parent="1" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=9;" value="&lt;b&gt;RBAC (FR18 / §7.2):&lt;/b&gt;&lt;br&gt;• Farmer → ALLOWED own fields&lt;br&gt;• HTX Manager → ALLOWED full fleet&lt;br&gt;• Others → DENIED" vertex="1">
+          <mxGeometry height="70" width="200" x="490" y="360" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
