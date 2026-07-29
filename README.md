@@ -1,14 +1,14 @@
-# 🚁 AgriUAV Platform
+# AgriUAV Platform
 
-**ITA301 – Information System Analysis & Design | FPT University HCM | Summer 2026**
+**ITA301 – Information System Analysis & Design**
 
 > Precision Agricultural Drone Spraying Coordination Platform for Rice Cooperatives in the Mekong Delta
 
-**Status: ✅ Defense Completed — July 2026**
+**Status: Completed — July 2026**
 
 ---
 
-## 👥 Team — Group 3 (IS1901)
+## Group 3 (IS1901)
 
 | Role | Member | Student ID |
 |------|--------|------------|
@@ -92,7 +92,7 @@ This project follows FPT University's **RBL Insight** framework (AI Reflection =
 
 - **25 Audit Log entries** spanning D1–D5
 - Every entry documents: AI prompt → AI output → problem identified → human correction → artifact changed
-- Full log: [`D5-reflection/ITA301_G3_D5_20260719_AIAuditLog_v1.1.docx`](D5-reflection/ITA301_G3_D5_20260719_AIAuditLog_v1.1.docx)
+- Full log: [`D5-reflection/ITA301_G3_D5_20260719_AIAuditLog_v1.1.pdf`](D5-reflection/ITA301_G3_D5_20260719_AIAuditLog_v1.1.pdf)
 
 ---
 
